@@ -7,7 +7,9 @@ public class SceneGenerator : MonoBehaviour
 {
     [SerializeField]
     GameObject Cube1M, Slope1M, CuttedSlope2M_P1, CuttedSlope2M_P2;
-
+    [SerializeField] 
+    private string _mapPath;
+    
     Dictionary<string, GameObject> modelDico = new Dictionary<string, GameObject>();
     Dictionary<string, Quaternion> quaternionDico = new Dictionary<string, Quaternion>();
 
@@ -31,7 +33,7 @@ public class SceneGenerator : MonoBehaviour
         modelDico.Add("11", CuttedSlope2M_P2); quaternionDico.Add("11", Quaternion.Euler(0, 0, 90));//OK
         modelDico.Add("14", CuttedSlope2M_P2); quaternionDico.Add("14", Quaternion.Euler(-180, 180, 90));//OK
 
-        using (StreamReader reader = new StreamReader(@"Assets\Map\MickaMap.csv"))
+        using (StreamReader reader = new StreamReader(_mapPath))
         {
             int currentLine = 0;
             while (!reader.EndOfStream)
