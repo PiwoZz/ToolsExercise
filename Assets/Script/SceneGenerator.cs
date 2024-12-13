@@ -31,7 +31,7 @@ public class SceneGenerator : MonoBehaviour
         modelDico.Add("11", CuttedSlope2M_P2); quaternionDico.Add("11", Quaternion.Euler(0, 0, 90));//OK
         modelDico.Add("14", CuttedSlope2M_P2); quaternionDico.Add("14", Quaternion.Euler(-180, 180, 90));//OK
 
-        using (StreamReader reader = new StreamReader(@"Assets\MapExemple.csv"))
+        using (StreamReader reader = new StreamReader(@"Assets\Map\MickaMap.csv"))
         {
             int currentLine = 0;
             while (!reader.EndOfStream)
@@ -49,6 +49,7 @@ public class SceneGenerator : MonoBehaviour
                             Quaternion quaternion = new Quaternion();
                             quaternionDico.TryGetValue(content[currentColumn], out quaternion);
 
+                            if (obj == null) continue;
                             Instantiate<GameObject>(obj, new Vector3(-currentColumn, i, currentLine), quaternion);
                         }
                     }
