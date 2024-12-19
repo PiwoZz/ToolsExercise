@@ -52,7 +52,8 @@ public class SceneGenerator : MonoBehaviour
                             quaternionDico.TryGetValue(content[currentColumn], out quaternion);
 
                             if (obj == null) continue;
-                            Instantiate<GameObject>(obj, new Vector3(-currentColumn, i, currentLine), quaternion);
+                            var newObj = Instantiate<GameObject>(obj, new Vector3(-currentColumn, i, currentLine), quaternion);
+                            newObj.transform.SetParent(transform);
                         }
                     }
                 }
