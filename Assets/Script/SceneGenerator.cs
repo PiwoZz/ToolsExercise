@@ -6,7 +6,7 @@ using UnityEngine;
 public class SceneGenerator : MonoBehaviour
 {
     [SerializeField]
-    GameObject Cube1M, Slope1M, CuttedSlope2M_P1, CuttedSlope2M_P2;
+    GameObject Cube1M, Slope1M, CuttedSlope2M_P1, CuttedSlope2M_P2, Chest;
     [SerializeField] 
     private string _mapPath;
     
@@ -32,6 +32,8 @@ public class SceneGenerator : MonoBehaviour
         modelDico.Add("6", CuttedSlope2M_P2); quaternionDico.Add("6", Quaternion.Euler(0, 180, 90));//OK
         modelDico.Add("11", CuttedSlope2M_P2); quaternionDico.Add("11", Quaternion.Euler(0, 0, 90));//OK
         modelDico.Add("14", CuttedSlope2M_P2); quaternionDico.Add("14", Quaternion.Euler(-180, 180, 90));//OK
+        
+        modelDico.Add("32", Chest); quaternionDico.Add("32", Quaternion.Euler(0, 90, 90));
 
         using (StreamReader reader = new StreamReader(_mapPath))
         {
@@ -51,7 +53,7 @@ public class SceneGenerator : MonoBehaviour
                             Quaternion quaternion = new Quaternion();
                             quaternionDico.TryGetValue(content[currentColumn], out quaternion);
 
-                            if (obj == null) continue;
+                            if (obj == null || (content[currentColumn] == "32" && i >= 1)) continue;
                             var newObj = Instantiate<GameObject>(obj, new Vector3(-currentColumn, i, currentLine), quaternion);
                             newObj.transform.SetParent(transform);
                         }
