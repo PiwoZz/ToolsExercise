@@ -40,9 +40,7 @@ public class PlayerActions : MonoBehaviour {
     private void Save() {
         using StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/save.json");
         
-        (List<Item>, List<ChestInfos>) writePair = (_inventory, Chest.Chests);
-        
-        string output = JsonConvert.SerializeObject(writePair, Formatting.Indented);
+        string output = JsonConvert.SerializeObject((_inventory, Chest.ChestInfos), Formatting.Indented);
         sw.Write(output);
     }
 
@@ -59,10 +57,11 @@ public class PlayerActions : MonoBehaviour {
         _inventory.Clear();
         foreach (Item index in readPair.Item1) _inventory.Add(itemDistributor.GetItem(index.id));
         foreach (ChestInfos chest in readPair.Item2) {
-            ChestInfos temp = Chest.GetChest(chest.id);
-            temp.opened = chest.opened;
-            temp.containedItem = itemDistributor.GetItem(temp.containedItem.id);
+            Chest temp = Chest.GetChest(chest.id);
+            temp.MyChestInfos.opened = chest.opened;
+            temp.MyChestInfos.containedItem = itemDistributor.GetItem(temp.MyChestInfos.containedItem.id);
         }
+        Chest.Actualise();
     }
 
     public void AddToInventory(Item item) {

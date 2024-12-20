@@ -3,51 +3,46 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 
-[JsonObject(MemberSerialization.OptIn)]
 public class Chest : MonoBehaviour, IInteractible {
-        public static List<ChestInfos> Chests = new();
+        public static List<ChestInfos> ChestInfos = new();
+        public static List<Chest> Chests = new();
 
-        [JsonProperty] private ChestInfos _myChestInfos;
+        [NonSerialized] public ChestInfos MyChestInfos;
 
         private static int _commonId = 0;
 
         private void Awake() {
-                _myChestInfos.id = (int)Mathf.Pow(2, _commonId++);
-                _myChestInfos.containedItem = ItemDistributor.GetRandomItem();
-                _myChestInfos.opened = false;
-                Chests.Add(_myChestInfos);
+                MyChestInfos = new ChestInfos();
+                MyChestInfos.id = (int)Mathf.Pow(2, _commonId++);
+                MyChestInfos.containedItem = ItemDistributor.GetRandomItem();
+                MyChestInfos.opened = false;
+                ChestInfos.Add(MyChestInfos);
+                Chests.Add(this);
+        }
+
+        public static void Actualise() {
+                foreach (var chest in Chests) {
+                        Color color = chest.MyChestInfos.opened ? Color.gray : Color.yellow;
+                        chest.GetComponent<MeshRenderer>().material.color = color;
+                }
         }
 
         public void Interact() {
-                if(_myChestInfos is { containedItem: not null, opened: false }) FindAnyObjectByType<PlayerActions>().AddToInventory(_myChestInfos.containedItem);
-                _myChestInfos.opened = true;
+                if (MyChestInfos is not { containedItem: not null, opened: false }) return;
+                FindAnyObjectByType<PlayerActions>().AddToInventory(MyChestInfos.containedItem);
+                MyChestInfos.opened = true;
+                GetComponent<MeshRenderer>().material.color = Color.gray;
         }
 
-        private void OnDestroy() {
-                Chests.Remove(_myChestInfos);
-        }
-
-        public static ChestInfos GetChest(int id) {
-                return Chests.Find(x => x.id == id);
+        public static Chest GetChest(int id) {
+                return Chests.Find(x => x.MyChestInfos.id ==  id);
         }
         
 }
 
 [Serializable]
-public struct ChestInfos : IEquatable<ChestInfos> {
+public class ChestInfos {
         public int id;
         public Item containedItem;
         public bool opened;
-
-        public bool Equals(ChestInfos other) {
-                return id == other.id && Equals(containedItem, other.containedItem) && opened == other.opened;
-        }
-
-        public override bool Equals(object obj) {
-                return obj is ChestInfos other && Equals(other);
-        }
-
-        public override int GetHashCode() {
-                return HashCode.Combine(id, containedItem, opened);
-        }
 }
