@@ -119,81 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &72904345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 72904346}
-  - component: {fileID: 72904347}
-  m_Layer: 0
-  m_Name: ItemsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &72904346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72904345}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &72904347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72904345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e136bc1538694ffda185c46e07b8a8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedItems:
-  - id: 1
-    itemName: Key
-    icon: {fileID: 21300000, guid: 3a6c1cd44c6352d4096074fca5dcf6d9, type: 3}
-  - id: 2
-    itemName: HealthPotion
-    icon: {fileID: 21300000, guid: 8154c8ddd17ec4045b58389a6fec22fb, type: 3}
-  - id: 4
-    itemName: Necklace
-    icon: {fileID: 21300000, guid: 65be500a8d3036e4d8d86730869d44ea, type: 3}
-  - id: 8
-    itemName: Book
-    icon: {fileID: 21300000, guid: 9749f0ea8de911f4ab539fbf8630da90, type: 3}
-  - id: 16
-    itemName: Ring
-    icon: {fileID: 21300000, guid: a8668caa280412b4b858a519bf69196f, type: 3}
-  - id: 32
-    itemName: Bone
-    icon: {fileID: 21300000, guid: d0954a2bdc8e73349855ee3d4732c65f, type: 3}
-  - id: 64
-    itemName: Rubis
-    icon: {fileID: 21300000, guid: 55854deab92100f41993266690305b68, type: 3}
-  - id: 128
-    itemName: Knife
-    icon: {fileID: 21300000, guid: 9409a8e761d433d469d159ce2b654641, type: 3}
-  - id: 256
-    itemName: Letter
-    icon: {fileID: 21300000, guid: 96cf9cb2ce2daee4491b503a3f4738f6, type: 3}
-  - id: 512
-    itemName: Helmet
-    icon: {fileID: 21300000, guid: 5b1d87847af9f164aad6581606b2f29a, type: 3}
 --- !u!1 &471964872
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +252,7 @@ MonoBehaviour:
   chest: {fileID: 7165572035562250326, guid: 3d48dc5109b86b94184c1e37103d290d, type: 3}
   SasTrigger: {fileID: 258289995887238503, guid: 9e3c7c60756bd3c45864cb5e9db01dc4, type: 3}
   SasUnTrigger: {fileID: 258289995887238503, guid: 620a608230b497b45b69ceef21dfd58a, type: 3}
-  _mapPath: Assets\Map\MickaMap.csv
+  _mapPath: Assets/Map/MapTim.csv
 --- !u!114 &573124460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778d6ffe0bf5475d8ed17dcdbadb8394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentMap: 
+  _currentMap: MapTim
 --- !u!1 &780941543
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +697,63 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &13091608631084942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7298207168283502237, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_Name
+      value: ItemsManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570410631326276776, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a1e1833f8d99524b83b601be1ee54f6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -781,4 +763,4 @@ SceneRoots:
   - {fileID: 882753959}
   - {fileID: 1424503373}
   - {fileID: 471964875}
-  - {fileID: 72904346}
+  - {fileID: 13091608631084942}

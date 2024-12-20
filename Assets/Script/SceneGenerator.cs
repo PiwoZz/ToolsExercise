@@ -98,8 +98,8 @@ public class SceneGenerator : MonoBehaviour
                     {
                         for (int currentColumn = 0; currentColumn < content.Length; currentColumn++)
                         {
-                            if (content[currentColumn] != null && content[currentColumn] != "" && content[currentColumn] != "-1")
-                            {
+                            if (content[currentColumn] != null && content[currentColumn] != "" && content[currentColumn] != "-1") {
+                                if (content[currentColumn] == "32" && i > 0) continue;
                                 if ((content[currentColumn] == "48" || content[currentColumn] == "16") && i != 0) continue;
                                 GameObject obj = Cube1M;
                                 modelDico.TryGetValue(content[currentColumn], out obj);
