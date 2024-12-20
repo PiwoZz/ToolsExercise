@@ -17,4 +17,8 @@ public class ItemDistributor : MonoBehaviour {
         Items.Remove(giveItem);
         return giveItem;
     }
+
+    public Item GetItem(int index) {
+        return serializedItems.Find(o => o.id == index);
+    }
 }

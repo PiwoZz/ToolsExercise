@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerActions : MonoBehaviour {
 
-    private List<Item> _inventory = new();
+    private readonly List<Item> _inventory = new();
     private GameObject _pointedObject;
     private Camera _mainCamera;
 
@@ -39,22 +39,30 @@ public class PlayerActions : MonoBehaviour {
 
     private void Save() {
         using StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/save.json");
-        using JsonWriter writer = new JsonTextWriter(sw);
-        JsonSerializer serializer = new JsonSerializer();
         
-        serializer.Serialize(writer, _inventory);
-        serializer.Serialize(writer, transform);
+        (List<Item>, List<ChestInfos>) writePair = (_inventory, Chest.Chests);
+        
+        string output = JsonConvert.SerializeObject(writePair, Formatting.Indented);
+        sw.Write(output);
     }
 
     private void Load() {
         using StreamReader sr = new StreamReader(Application.persistentDataPath + "/save.json");
         using JsonReader reader = new JsonTextReader(sr);
-        JsonSerializer serializer = new JsonSerializer();
+        reader.SupportMultipleContent = true;
         
-        _inventory = serializer.Deserialize<List<Item>>(reader);
-        Transform temp = serializer.Deserialize<Transform>(reader);
-        transform.position = temp.position;
-        transform.rotation = temp.rotation;
+        ItemDistributor itemDistributor = FindFirstObjectByType<ItemDistributor>();
+        JsonSerializer serializer = new JsonSerializer();
+
+        var readPair = serializer.Deserialize<(List<Item>, List<ChestInfos>)>(reader);
+        
+        _inventory.Clear();
+        foreach (Item index in readPair.Item1) _inventory.Add(itemDistributor.GetItem(index.id));
+        foreach (ChestInfos chest in readPair.Item2) {
+            ChestInfos temp = Chest.GetChest(chest.id);
+            temp.opened = chest.opened;
+            temp.containedItem = itemDistributor.GetItem(temp.containedItem.id);
+        }
     }
 
     public void AddToInventory(Item item) {

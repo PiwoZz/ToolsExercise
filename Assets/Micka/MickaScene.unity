@@ -119,6 +119,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &72904345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72904346}
+  - component: {fileID: 72904347}
+  m_Layer: 0
+  m_Name: ItemsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72904346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72904345}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72904347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72904345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e136bc1538694ffda185c46e07b8a8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedItems:
+  - id: 1
+    itemName: Key
+    icon: {fileID: 21300000, guid: 3a6c1cd44c6352d4096074fca5dcf6d9, type: 3}
+  - id: 2
+    itemName: HealthPotion
+    icon: {fileID: 21300000, guid: 8154c8ddd17ec4045b58389a6fec22fb, type: 3}
+  - id: 4
+    itemName: Necklace
+    icon: {fileID: 21300000, guid: 65be500a8d3036e4d8d86730869d44ea, type: 3}
+  - id: 8
+    itemName: Book
+    icon: {fileID: 21300000, guid: 9749f0ea8de911f4ab539fbf8630da90, type: 3}
+  - id: 16
+    itemName: Ring
+    icon: {fileID: 21300000, guid: a8668caa280412b4b858a519bf69196f, type: 3}
+  - id: 32
+    itemName: Bone
+    icon: {fileID: 21300000, guid: d0954a2bdc8e73349855ee3d4732c65f, type: 3}
+  - id: 64
+    itemName: Rubis
+    icon: {fileID: 21300000, guid: 55854deab92100f41993266690305b68, type: 3}
+  - id: 128
+    itemName: Knife
+    icon: {fileID: 21300000, guid: 9409a8e761d433d469d159ce2b654641, type: 3}
+  - id: 256
+    itemName: Letter
+    icon: {fileID: 21300000, guid: 96cf9cb2ce2daee4491b503a3f4738f6, type: 3}
+  - id: 512
+    itemName: Helmet
+    icon: {fileID: 21300000, guid: 5b1d87847af9f164aad6581606b2f29a, type: 3}
 --- !u!1 &471964872
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,3 +763,4 @@ SceneRoots:
   - {fileID: 882753959}
   - {fileID: 1424503373}
   - {fileID: 471964875}
+  - {fileID: 72904346}
