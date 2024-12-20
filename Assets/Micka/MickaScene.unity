@@ -283,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573124458}
   - component: {fileID: 573124459}
+  - component: {fileID: 573124460}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -317,12 +318,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c38d83bb37e02e45a860799589d7595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneLoading: 0
+  sceneUnloading: 0
   Cube1M: {fileID: 2178830870374952958, guid: 855931ba524b618419646b0f41cb5ec3, type: 3}
   Slope1M: {fileID: 6351110015676105933, guid: 053904e9b396e0b4a96dc39debca1d58, type: 3}
   CuttedSlope2M_P1: {fileID: 1914569663030096075, guid: 3f3e42879f8f60a439e3a56a883edb19, type: 3}
   CuttedSlope2M_P2: {fileID: 3329763305792730434, guid: 9206523cee5bebc40887c24da51bac86, type: 3}
-  Chest: {fileID: 7165572035562250326, guid: 3d48dc5109b86b94184c1e37103d290d, type: 3}
+  chest: {fileID: 7165572035562250326, guid: 3d48dc5109b86b94184c1e37103d290d, type: 3}
+  SasTrigger: {fileID: 258289995887238503, guid: 9e3c7c60756bd3c45864cb5e9db01dc4, type: 3}
+  SasUnTrigger: {fileID: 258289995887238503, guid: 620a608230b497b45b69ceef21dfd58a, type: 3}
   _mapPath: Assets\Map\MickaMap.csv
+--- !u!114 &573124460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573124457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d6ffe0bf5475d8ed17dcdbadb8394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentMap: 
 --- !u!1 &780941543
 GameObject:
   m_ObjectHideFlags: 0

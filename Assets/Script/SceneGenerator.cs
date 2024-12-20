@@ -28,7 +28,7 @@ public class SceneGenerator : MonoBehaviour
     private List<GameObject> _previousMaps = new List<GameObject>();
     
     [SerializeField]
-    GameObject Cube1M, Slope1M, CuttedSlope2M_P1, CuttedSlope2M_P2;
+    GameObject Cube1M, Slope1M, CuttedSlope2M_P1, CuttedSlope2M_P2, chest;
 
     [SerializeField] private GameObject SasTrigger;
     [SerializeField] private GameObject SasUnTrigger;
@@ -61,6 +61,8 @@ public class SceneGenerator : MonoBehaviour
         modelDico.Add("14", CuttedSlope2M_P2); quaternionDico.Add("14", Quaternion.Euler(-180, 180, 90));//OK
         modelDico.Add("48", SasTrigger); quaternionDico.Add("48", Quaternion.Euler(0, 0, 0));
         modelDico.Add("16", SasUnTrigger); quaternionDico.Add("16", Quaternion.Euler(0, 0, 0));
+        
+        modelDico.Add("32", chest); quaternionDico.Add("32", Quaternion.Euler(0, 90, 90));
     }
 
     private bool MapAlreadyLoaded(string mapPath)
